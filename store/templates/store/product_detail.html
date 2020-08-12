@@ -1,0 +1,27 @@
+{% extends 'store/base.html' %}
+
+ {% block content %}
+
+ <h2 class="card-text">
+    {{product.name}}
+ </h2>
+ <h2 class="card-text">
+    {{product.category}}
+ </h2>
+ <h2 class="card-text">
+    {{product.price}}
+ </h2>
+ <h2 class="card-text">
+    {{product.description}}
+ </h2>
+ <h2 class="card-text">
+     <img src=" {{product.image.url}}" alt="">
+   
+ </h2>
+<a href="{% url 'mystore' %}"><button type="button" class="btn btn-large  btn-info">Back</button>
+</a>
+
+
+ {% endblock content %}
+
+
