@@ -1,11 +1,8 @@
 {% extends 'store/base.html' %} 
-{% load cart %}
+
+
 {% block cat %}
 
-<<<<<<< HEAD:myecom/store/templates/store/index.html
-
-=======
->>>>>>> b999440cbba0527563db802bda572f307ebc3396:store/templates/store/index.html
  <ul class="list-group mt-2">
   
    <li class="list-group-item ">
@@ -22,18 +19,13 @@
   {% endfor %}
 
 </ul>
-<h4>User Data</h4>  
-<p>User Name:{{user_data.user.username}}</p>
-<p>User Address:{{user_data.address}}</p>
-<p>User Phon:{{user_data.phon}}</p>
-<p>User Email:{{user_data.user.email}}</p>
-<p>User Date Joined:{{user_data.user.date_joined}}</p>
-<img src="{{user_data.image.url}}" alt="" width='200px' height="200px">
+
 {% endblock cat %}
 
 
 {% block content %}
-
+{% load cart %}
+{% load custom_filter %}
 <div class="row">
   {% for product in products %}
     <div class="card mt-2 ml-2" style="width: 20rem;">
@@ -50,9 +42,6 @@
 
       </h5>  {{productCount}} 
        <h2 class="card-text">
-         
-      
-
           {{product.price}}
        </h2>
        <div class="card-footer p-0 no-gutters">

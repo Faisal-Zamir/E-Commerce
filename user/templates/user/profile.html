@@ -1,7 +1,13 @@
 {% extends 'store/base.html' %}
 
 {% block content %}
-This is the login user
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{ user_profile.image.url }}" alt="Card image cap">
+    <h5 class="card-title ml-3">{{ user_profile.user.first_name}} {{ user_profile.user.last_name}}</h5>
+    <p class="card-text ml-3">{{ user_profile.user.email}}</p>
+  
+  </div>
+
 {% endblock content %}
 
 

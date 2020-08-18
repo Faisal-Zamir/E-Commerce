@@ -3,6 +3,8 @@ from django.contrib import messages
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from user.models import Profile
 
 def register(request):
 
@@ -28,7 +30,6 @@ def login_user(request):
         upass = form.cleaned_data['password']
         user = authenticate(username=uname, password=upass)
         login(request, user)
-        
         messages.success(request, 'Logged in successfully !!')
         request.session['user'] = request.user.id
         if return_url:
@@ -41,8 +42,12 @@ def login_user(request):
         form = AuthenticationForm()
     context = {'form':form}
     return render(request, 'user/login.html',context)
+@login_required 
 def profile(request):
-    return render(request, 'user/profile.html')
+    user_profile = Profile.objects.get(user_id=request.user.id)
+    context = {'user_profile':user_profile}
+
+    return render(request, 'user/profile.html',context)
 
 def user_logout(request):
     logout(request)

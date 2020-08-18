@@ -123,6 +123,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'user')
 MEDIA_URL = '/media/'
-
+LOGIN_URL="/account/login/"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
